@@ -2,10 +2,10 @@ var noiseCounterX = 0;
 var noiseCounterY = 0;
 var x = 0;
 var y = 0;
-var fuLum;
+var fulum;
 
-function preLoad(){
-  fuLum = loadImage("image/fulum.png");
+function preload() {
+  fulum = loadImage("image/fulum.png");
 }
 
 function setup() {
@@ -14,9 +14,10 @@ function setup() {
 }
 
 function draw() {
-
   background(255);
-  image(fuLum,100,100,100,100);
+
+  image(fulum, 100, 100, 100, 100);
+
   sushiBG();
   sushiFilling();
   fill(0);
