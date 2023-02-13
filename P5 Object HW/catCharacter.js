@@ -1,7 +1,7 @@
 class catCharacter{
     constructor(inputStringsIdle, inputStringsWalk, x, y){
         this.Idle = new animation(inputStringsIdle);
-        this.Walk = new animation(inputStringsWalk);
+        this.RightWalk = new animation(inputStringsWalk);
         this.CurrentAnimation = this.Idle;
         this.frame = 0;
         this.animationSpeedFactor = 3;
@@ -32,7 +32,7 @@ class catCharacter{
         }
 
         if(keyIsPressed){
-            this.CurrentAnimation = this.Walk;
+            this.CurrentAnimation = this.RightWalk;
         }
         else{
             this.CurrentAnimation = this.Idle;
