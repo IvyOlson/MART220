@@ -8,15 +8,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(2000, 2000);
 
   console.log("THIS SUCKS!!!!!!!!!!! WHY DOES THIS WORK!!!!!!!!!!!!!");
   
-  Kitty1 = new catCharacter(inputStringsIdle, inputStringsWalk);
+  Kitty1 = new catCharacter(inputStringsIdle, inputStringsWalk, 100, 100);
 }
 
 function draw(){
   background(255);
-  Kitty1.draw(100, 100);
+  Kitty1.tick();
 }
+
 

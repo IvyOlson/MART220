@@ -10,6 +10,6 @@ class animation{
 
     draw(x, y, frame, widthScale, heightScale){
         //console.log(this.strings[frame]);
-        image(this.animationImg[frame] ,x , y, 100 * widthScale, 100 * heightScale);
+        image(this.animationImg[frame],x ,y , 100 * widthScale, 100 * heightScale);
     }
 }
