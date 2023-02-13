@@ -105,7 +105,7 @@ class character{
         fill(5,5,5,50);
         
         ellipse(-3,45,40,12.5);
-        this.CurrentAnimation.draw(0, 0, Math.floor(this.frame / this.animationSpeedFactor), this.currentScale[0], this.currentScale[1]);
+        this.CurrentAnimation.draw(0, 0, Math.floor(this.frame / this.animationSpeedFactor));
 
         // Alright, so what the hell am I doing for the frame number right? Let me explain. I'm shifting to multi-line comments because this is a bit of a doozy.
         /*
