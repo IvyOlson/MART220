@@ -38,36 +38,7 @@ class character{
             Add any character specific code you want done frame-by-frame to THIS function.
         */
 
-        // These conditionals handle movement. It works using the keycodes for the W, A, S, and D keys. 
-        // The reason I use these is because as far as I can tell, the arrow keys are broken :\
-            if(keyIsDown(87)){
-                this.y -= this.walkSpeed;
-            }
-
-            if(keyIsDown(83)){
-                this.y += this.walkSpeed;
-            }
-
-            if(keyIsDown(65)){
-                this.x -= this.walkSpeed;
-                this.currentScale[0] = -1;
-            }
-
-            if(keyIsDown(68)){
-                this.x += this.walkSpeed;
-                this.currentScale[0] = 1;
-            }
-        
-            // This conditional handles Sprinting. This is done by modifying the animationSpeedFactor and walkSpeed, but only if the player is moving and the shift key is down. 
-            // Java Script cannot discern directionality of shift key, for some ****in reason!!!
-                if(keyIsDown(16) && this.isMoving){
-                    this.walkSpeed = 10;
-                    this.animationSpeedFactor = 1;
-                }
-                else {
-                    this.walkSpeed = 5;
-                    this.animationSpeedFactor = 5;
-                }
+        this.handleMovement();
         
         // Movement Animation is handled through simply checking whether the move keys are pressed or not.
             if(this.isMoving()){
@@ -125,5 +96,39 @@ class character{
         if(this.frame >= (this.animationSpeedFactor * 10)){
             this.frame = 0;
         }
+    }
+
+    handleMovement(){
+        // These conditionals handle movement. It works using the keycodes for the W, A, S, and D keys. 
+        // The reason I use these is because as far as I can tell, the arrow keys are broken :\
+        if(keyIsDown(87)){
+            this.y -= this.walkSpeed;
+        }
+
+        if(keyIsDown(83)){
+            this.y += this.walkSpeed;
+        }
+
+        if(keyIsDown(65)){
+            this.x -= this.walkSpeed;
+            this.currentScale[0] = -1;
+        }
+
+        if(keyIsDown(68)){
+            this.x += this.walkSpeed;
+            this.currentScale[0] = 1;
+        }
+    
+        // This conditional handles Sprinting. This is done by modifying the animationSpeedFactor and walkSpeed, but only if the player is moving and the shift key is down. 
+        // Java Script cannot discern directionality of shift key, for some ****in reason!!!
+            if(keyIsDown(16) && this.isMoving){
+                this.walkSpeed = 10;
+                this.animationSpeedFactor = 1;
+            }
+            else {
+                this.walkSpeed = 5;
+                this.animationSpeedFactor = 5;
+            }
+    
     }
 }

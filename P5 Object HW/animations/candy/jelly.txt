@@ -1,0 +1,6 @@
+animations/candy/images/Jelly(6).png
+animations/candy/images/Jelly(7).png
+animations/candy/images/Jelly(8).png
+animations/candy/images/Jelly(9).png
+animations/candy/images/Jelly(10).png
+animations/candy/images/Jelly(11).png
