@@ -9,7 +9,7 @@ function preload() {
 
 function setup() {
   createCanvas(2000, 2000);
-
+ // imageMode(CENTER);
   console.log("THIS SUCKS!!!!!!!!!!! WHY DOES THIS WORK!!!!!!!!!!!!!");
   
   Kitty1 = new catCharacter(inputStringsIdle, inputStringsWalk, 100, 100);
