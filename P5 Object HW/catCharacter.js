@@ -1,14 +1,25 @@
 class catCharacter{
     constructor(inputStringsIdle, inputStringsWalk, x, y){
-        this.Idle = new animation(inputStringsIdle);
-        this.RightWalk = new animation(inputStringsWalk);
-        this.CurrentAnimation = this.Idle;
-        this.frame = 0;
-        this.walkSpeed = 5;
-        this.animationSpeedFactor = 5;
-        this.currentScale = [1, 1];
-        this.x = x;
-        this.y = y;
+        // These Properties handle animation creation and selection
+            this.Idle = new animation(inputStringsIdle);
+            this.RightWalk = new animation(inputStringsWalk);
+            this.CurrentAnimation = this.Idle;
+
+        // These Properties handle animation playing
+            this.frame = 0;
+            this.animationSpeedFactor = 5;
+
+        // These Properties handle transformation
+            this.currentScale = [1, 1];
+            this.x = x;
+            this.y = y;
+
+        // These Properties handle movement
+            this.walkSpeed = 5;
+        
+        // These Properties handle Health and Damage
+            this.maxHP = 5;
+            this.curHP = this.maxHP;
     }
 
     tick(){
@@ -61,8 +72,12 @@ class catCharacter{
         if(this.frame >= (this.animationSpeedFactor * 10)){
             this.frame = 0;
         }
-
+        noStroke();
+        fill(5,5,5,50);
+        
+        ellipse(-3,45,40,12.5);
         this.CurrentAnimation.draw(0, 0, Math.floor(this.frame / this.animationSpeedFactor), this.currentScale[0], this.currentScale[1]);
+        
         
         pop();
     }
