@@ -1,9 +1,10 @@
 class object{
-    constructor(x, y, inputStrings){
+    constructor(x, y, inputStrings, poison){
         this.strings = inputStrings;
         this.x = x;
         this.y = y;
         this.eaten = false;
+        this.poison = poison;
         this.cWidth = 311/5;
         this.cHeight = 269/5;
         this.currentImage = loadImage(this.strings[Math.floor(random(0, this.strings.length - 1))]);

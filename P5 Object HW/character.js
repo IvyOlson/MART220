@@ -22,7 +22,7 @@ class character{
         
         // These Properties handle Health and Damage
             this.maxHP = 5;
-            this.curHP = this.maxHP;
+            this.curHP = this.maxHP - 3;
     }
 
     tick(){
