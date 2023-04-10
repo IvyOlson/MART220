@@ -7,6 +7,7 @@ var bgm;
 
 function preload() {
   // Why do these have to be in the preload! Why can't they load in on construct! How you wound me p5.js!!
+  var j = 0;
 
   inputStringsIdle = loadStrings("animations/idle/idle.txt");
   inputStringsWalk = loadStrings("animations/walk/walk.txt");

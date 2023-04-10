@@ -9,13 +9,17 @@ class character{
         this.Sprite.scale = 0.3;
 
         //Health
-        this.maxHP = 50;
+        this.maxHP = 5;
         this.hp = this.maxHP;
+        this.score = 0;
     }
 
     tick(){
         this.characterMovement();
         this.animationHandler();
+        this.Sprite.rotation = 0;
+
+
     }
 
     characterMovement(){
