@@ -1,6 +1,7 @@
 class character{
     constructor(inputStringArray, xInit, yInit){
         this.Sprite = new Sprite();
+        this.Collider = new Sprite();
         this.Sprite.x = xInit;
         this.Sprite.y = yInit;
         this.Sprite.addAni("idle", inputStringArray[0]);
@@ -9,7 +10,7 @@ class character{
         this.Sprite.scale = 0.3;
 
         //Health
-        this.maxHP = 5;
+        this.maxHP = 50;
         this.hp = this.maxHP;
         this.score = 0;
     }
@@ -18,8 +19,6 @@ class character{
         this.characterMovement();
         this.animationHandler();
         this.Sprite.rotation = 0;
-
-
     }
 
     characterMovement(){
