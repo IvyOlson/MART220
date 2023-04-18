@@ -23,9 +23,23 @@ function setup() {
   blockers.w = 50;
   blockers.h = 50;
 
+  enemies = new Group();
+  enemies.color = 'purple';
+  enemies.w = 75;
+  enemies.h = 75;
+  
+  
+  while(enemies.length < 5){
+    var enemy = new enemies.Sprite();
+    enemy.collider = "s";
+    enemy.x = round(random(100,800));
+    enemy.y = round(random(100,600));
+    enemy.hp = 5;
+  }
+
   objects = new Group();
 
-  while (blockers.length < 18){
+  while (blockers.length < 5){
     var square = new blockers.Sprite();
     square.collider = 's';
     square.x = random(125,1000);
@@ -33,10 +47,10 @@ function setup() {
 
   }
 
-  while (objects.length < 18){
+  while (objects.length < 5){
     var object = new objects.Sprite();
     object.diameter = 80;
-    object.Sprite = "k";
+    object.collider = "k";
     object.x = random(125, 1000);
     object.y = random(125,675);
   }
@@ -54,7 +68,18 @@ function setup() {
   }
 
   catCharacter.Sprite.overlaps(objects, collect);
+
+  catCharacter.Sprite.collides(enemies, attack);
   
+}
+
+function attack(player, enemy){
+  if(kb.pressing('space')){
+    console.log("ATTACK");
+    enemy.hp -= 1;
+    particleSystem = new Particle(enemy.x, enemy.y);
+    if(enemy.hp <= 0) enemy.remove();
+  }
 }
 
 function collect(player, object){
