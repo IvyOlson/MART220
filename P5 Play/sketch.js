@@ -5,7 +5,8 @@ var inputIdle = [];
 var blockers;
 var objects;
 var pickupTypes = [];
-
+var particleSystem;
+var hp = 5;
 function preload() {
   var inputIdle = loadStrings("assets/animations/idle/idle.txt");
   var inputWalk = loadStrings("assets/animations/walk/walk.txt");
@@ -41,8 +42,15 @@ function setup() {
   }
 
   for(var i = 0; i < objects.length; i++){
-    if(round(random(0,1)) == 0) pickupTypes[i] = "harm";
-    if(round(random(0,1)) == 1) pickupTypes[i] = "help";
+    if(round(random(0,1)) == 0){
+      pickupTypes[i] = "harm";
+      objects[i].color = "red";
+    } 
+    if(round(random(0,1)) == 1){
+      pickupTypes[i] = "help";
+      objects[i].color = "green";
+    } 
+
   }
 
   catCharacter.Sprite.overlaps(objects, collect);
@@ -53,13 +61,13 @@ function collect(player, object){
   console.log(pickupTypes[objects.indexOf(object)]);
 
   if(pickupTypes[objects.indexOf(object)] == "harm"){
-    catCharacter.hp -= 1;
+    hp -= 1;
   }
   
   if(pickupTypes[objects.indexOf(object)] == "help"){
-    catCharacter.hp++;
+    hp++;
   }
-
+  particleSystem = new Particle(object.x, object.y);
   object.remove();
 }
 
@@ -70,16 +78,16 @@ function draw(){
 
   fill(0, 0, 0);
 
-  if(catCharacter.hp >= 10){
+  if(hp >= 10){
     text("YOU WIN!!!!", 100, 100, );
   }
-  else if(catCharacter.hp <= 0){
+  else if(hp <= 0){
     text("YOU LOSE!!!!!!!", 100, 100, );
   }
   else{
-    text(catCharacter.hp, 100, 100, );
+    text(hp, 100, 100, );
   }
-
+  if(particleSystem != null) particleSystem.tick();
 
 
 }
